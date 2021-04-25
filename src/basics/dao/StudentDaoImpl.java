@@ -41,7 +41,7 @@ System.out.println("no of records deleted="+noRecordsDeleted);
 	}
 	@Override
 	public int delRecordByNameSem(String studentName, int sem) {
-		String sql="DELETE FROM STUDENT WHERE NAME=? OR SEMESTER=?";//replace Or with AND and see the results also
+		String sql="DELETE FROM STUDENT WHERE NAME=? AND SEMESTER=?";//replace Or with AND and see the results also
 		Object[] objects= {studentName,sem};
 		int noRecordsDeleted=jdbcTemplate.update(sql,objects);
 		System.out.println("no of records delete="+ noRecordsDeleted);

@@ -13,7 +13,7 @@ public class PlayJdbc {
 		StudentDao studentDao=(StudentDao) context.getBean("studentDao");
 		//studentDao.delRecordById(13);
 		//insertStudent(studentDao);
-		studentDao.delRecordByNameSem("vasanthi", 6);
+		studentDao.delRecordByNameSem("chandu", 2);
 		
 	
 	}
