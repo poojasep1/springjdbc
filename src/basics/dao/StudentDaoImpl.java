@@ -33,6 +33,12 @@ public void setJdbcTemplate(JdbcTemplate jdbcTemplate) {
 		DriverManagerDataSource dataSource=new DriverManagerDataSource(url,username,password);
 		return dataSource;
 	}
+	@Override
+	public void delRecordById(int id) {
+		String delSql="DELETE FROM STUDENT WHERE _id=?";
+int noRecordsDeleted=jdbcTemplate.update(delSql,id);
+System.out.println("no of records deleted="+noRecordsDeleted);
+	}
 }
 	 
 
