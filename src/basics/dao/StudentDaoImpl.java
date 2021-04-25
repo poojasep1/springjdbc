@@ -47,6 +47,11 @@ System.out.println("no of records deleted="+noRecordsDeleted);
 		System.out.println("no of records delete="+ noRecordsDeleted);
 		return noRecordsDeleted;
 	}
+	public void cleanUp() {
+		String sql="TRUNCATE TABLE STUDENT";
+		jdbcTemplate.update(sql);
+		System.out.println("table cleaned");
+	}
 }
 	 
 
