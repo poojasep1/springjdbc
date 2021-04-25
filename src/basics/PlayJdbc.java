@@ -9,11 +9,14 @@ import basics.model.Student;
 
 public class PlayJdbc {
 	public static void main(String args[]) {
+		
 		ApplicationContext context= new ClassPathXmlApplicationContext("beans.xml");
-		StudentDaoImpl studentDao=(StudentDaoImpl) context.getBean("studentDao");
+		//StudentDaoImpl studentDao=(StudentDaoImpl) context.getBean("studentDao");
 		//studentDao.delRecordById(13);
+		StudentDaoHelper helper=context.getBean("studentDaoHelper",StudentDaoHelper.class);
+		helper.insertStudents();
 	//insertStudent(studentDao);
-		studentDao.cleanUp();
+		//studentDao.cleanUp();
 		//studentDao.delRecordByNameSem("chandu", 2);
 		
 	

@@ -11,7 +11,7 @@
 		http://www.springframework.org/schema/jdbc		http://www.springframework.org/schema/jdbc/spring-jdbc-4.3.xsd
 			
         http://www.springframework.org/schema/context   http://www.springframework.org/schema/context/spring-context-4.0.xsd">
-
+<context:component-scan base-package="basics"></context:component-scan>
     <bean  id = "jdbcTemplate" class = "org.springframework.jdbc.core.JdbcTemplate" >
     	<constructor-arg name = "dataSource" ref = "driverDataSource"> </constructor-arg>
     </bean>

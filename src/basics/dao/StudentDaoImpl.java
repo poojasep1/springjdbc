@@ -1,5 +1,8 @@
 package basics.dao;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.sql.DataSource;
 
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -51,6 +54,18 @@ System.out.println("no of records deleted="+noRecordsDeleted);
 		String sql="TRUNCATE TABLE STUDENT";
 		jdbcTemplate.update(sql);
 		System.out.println("table cleaned");
+	}
+	@Override
+	public void insert(List<Student> students) {
+		String sql="INSERT INTO STUDENT VALUES (?,?,?,?)";
+		ArrayList<Object[]> sqlArgs =new ArrayList<>();
+		for(Student student: students) {
+			Object[] studentData=	{student.getId(),student.getName(),student.getSem(),student.getAverage()};
+			sqlArgs.add(studentData);
+		}
+		jdbcTemplate.batchUpdate(sql,sqlArgs);
+		
+		
 	}
 }
 	 
