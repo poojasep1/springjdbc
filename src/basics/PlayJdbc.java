@@ -1,16 +1,21 @@
 package basics;
 
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
 import basics.dao.StudentDao;
 import basics.dao.StudentDaoImpl;
 import basics.model.Student;
 
 public class PlayJdbc {
 	public static void main(String args[]) {
-		Student mystudent=new Student(3,"vasanthi",5,66);
-		Student anotherstudent=new Student(4,"Aruna",6,55);
-		StudentDao studentdao=new StudentDaoImpl();
+		ApplicationContext context= new ClassPathXmlApplicationContext("beans.xml");
+		Student myStudent=new Student(13,"prathyusha",5,66);
+		Student anotherstudent=new Student(14,"bharathi",6,55);
+		StudentDao studentDao=(StudentDao) context.getBean("studentDao");
+				//new StudentDaoImpl();
 		
-		studentdao.insert(anotherstudent);
+		studentDao.insert(anotherstudent);
 		
 	}
 
