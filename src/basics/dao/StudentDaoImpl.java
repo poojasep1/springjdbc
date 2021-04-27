@@ -6,6 +6,7 @@ import java.util.List;
 import javax.sql.DataSource;
 
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.ResultSetExtractor;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 
 import basics.model.Student;
@@ -66,6 +67,12 @@ System.out.println("no of records deleted="+noRecordsDeleted);
 		jdbcTemplate.batchUpdate(sql,sqlArgs);
 		
 		
+	}
+	@Override
+	public List<Student> getAllStudents() {
+		String sql = "SELECT * FROM STUDENT";
+		List<Student> students = ((Object) jdbcTemplate).sql(sql,  new StudentRowMapper());
+		return students;
 	}
 }
 	 

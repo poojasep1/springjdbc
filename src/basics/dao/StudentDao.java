@@ -11,5 +11,8 @@ public interface StudentDao {
 	void insert(List<Student> students);
 	 void delRecordById(int _id) ;
 	 int delRecordByNameSem(String StudentName,int sem );
+	
+		public List<Student> getAllStudents();
+
 
 }

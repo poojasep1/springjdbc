@@ -4,6 +4,7 @@ public class Student {
 	int id;
 	String name;
 	int sem;
+	int semester;
 	int average;
 	
 	
@@ -13,10 +14,13 @@ public class Student {
 		this.id = id;
 		this.name = name;
 		this.sem = sem;
+		this.semester=sem;
 		this.average = average;
 	}
 
-
+	public Student() {
+		// TODO Auto-generated constructor stub
+	}
 
 
 
@@ -52,6 +56,7 @@ public class Student {
 
 	public void setSem(int sem) {
 		this.sem = sem;
+		this.semester = sem;
 	}
 
 
@@ -64,6 +69,11 @@ public class Student {
 
 	public void setAverage(int average) {
 		this.average = average;
+	}
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		return "\ntoStringcalled\t"+name+"\t"+semester+"\t"+average;
 	}
 	
 }
